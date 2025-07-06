@@ -194,7 +194,7 @@ def main():
     <div class="main-header">
         <h1> AI Study Assistant </h1>
         <p>Transform your study materials into summaries and practice questions!</p>
-        <p><em>Built for Sonoma Hacks 4.0 🚀</em></p>
+        <p><em>Built for Sonoma Hacks 4.0 </em></p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -207,17 +207,6 @@ def main():
         available_providers.append("Groq")
     if not available_providers:
         st.error("No AI providers available. Please set up your API keys!")
-        st.info("""
-        To use this app, you need to set up API keys:
-        
-        **Method 1: Environment Variables**
-        - Set `GROQ_API_KEY` for Groq (Recommended - Super Fast!)
-        - Set `ANTHROPIC_API_KEY` for Claude
-        - Set `OPENAI_API_KEY` for OpenAI
-        
-        **Method 2: Streamlit Secrets**
-        - Add keys to `.streamlit/secrets.toml`
-        """)
         return
     
     ai_provider = st.sidebar.selectbox(
@@ -248,7 +237,7 @@ def main():
             content = st.text_area(
                 "Study Material",
                 height=300,
-                placeholder="Paste your notes, textbook excerpts, or any study material here...",
+                placeholder="Paste your notes or any study material here...",
                 help="The more detailed your input, the better the AI can help you study!"
             )
             st.markdown('</div>', unsafe_allow_html=True)
@@ -277,9 +266,9 @@ def main():
     with col2:
         st.markdown("###  How it works")
         st.markdown("""
-        1. ** Input**: Paste text or upload PDF
-        2. ** AI Processing**: Generate summary & questions
-        3. ** Study**: Review and practice!
+        1. Paste text or upload PDF
+        2. Generate summary & questions
+        3. Review and practice!
         """)
         
         st.markdown("###  Features")
